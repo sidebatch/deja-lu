@@ -1,5 +1,5 @@
 /* Déjà Lu - 오프라인용 서비스 워커 (네트워크 우선) */
-const CACHE = 'deja-lu-v9';
+const CACHE = 'deja-lu-v10';
 const ASSETS = [
   './',
   './index.html',
