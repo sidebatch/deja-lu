@@ -53,6 +53,9 @@
   .spk{font-size:13px;color:var(--sub);font-weight:400}
   .mute{color:#b9b9be;text-decoration:line-through;text-decoration-thickness:2px;font-weight:800}
   #gcBadge{position:fixed;top:10px;right:12px;z-index:50;background:#fff;color:#1c1c1e;border:1.5px solid #e8e2d8;box-shadow:0 2px 8px rgba(0,0,0,.14);font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px;display:none}
+  .tabs{display:flex;gap:8px;margin:16px 0 2px}
+  .tabbtn{flex:1;background:#fff;color:var(--ink);border:1.5px solid var(--line);border-radius:999px;padding:10px 8px;font-size:15px;font-weight:800;cursor:pointer}
+  .tabbtn.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 </style>
 </head>
 <body>
@@ -70,14 +73,14 @@
   </div>
   <p id="playStatus" style="font-size:13px;color:var(--sub);margin:8px 0 0">소리: 단어를 누르면 내장 음성으로 바로 재생돼</p>
 
+  <div class="tabs"><button class="tabbtn on" id="tabBtn1">소리 덩어리</button><button class="tabbtn" id="tabBtn2">읽지 않는 끝글자</button></div>
+  <div id="tab-chunks">
   <div class="grid-label">소리 덩어리 알파벳 — 눌러서 이동</div>
   <div class="tiles" id="tiles"></div>
 
   <div id="groups"></div>
 
-  <h2 style="margin-top:30px">읽지 않는 끝글자</h2>
-  <p class="lead">소리 덩어리가 1층이면 이건 2층이야. 단어 끝글자는 <b>안 읽는 게 기본</b>. 회색은 안 읽는 글자, 빨간색은 읽는 글자야.</p>
-  <div id="finals"></div>
+  
 
   <h2 style="margin-top:30px">문장 속에서는 이렇게 보여</h2>
   <p class="lead">덩어리가 자동으로 보이기 시작하면, 그때부터 읽는 속도가 붙어.</p>
@@ -88,8 +91,14 @@
     반대로 글자 이름은 단어 속에서 거의 쓰이지 않아. 그래서 덩어리가 먼저야.
   </div>
 
+  </div>
+  <div id="tab-finals" hidden>
+  <h2 style="margin-top:30px">읽지 않는 끝글자</h2>
+  <p class="lead">소리 덩어리가 1층이면 이건 2층이야. 단어 끝글자는 <b>안 읽는 게 기본</b>. 회색은 안 읽는 글자, 빨간색은 읽는 글자야.</p>
+  <div id="finals"></div>
+  </div>
   <footer>단어를 누르면 미리 만들어 둔 프랑스어 음성(MP3)으로 읽어줘. 기기 음성에 기대지 않는 방식이야. 연습 모드에서는 빨간 표시가 사라지고, 단어를 누르면 그 단어만 표시가 돌아와.<br><br></footer>
-  <div style="text-align:center;color:var(--sub);font-size:13px;margin-top:18px">© 2026 sidebatch. All rights reserved. · v7</div>
+  <div style="text-align:center;color:var(--sub);font-size:13px;margin-top:18px">© 2026 sidebatch. All rights reserved. · v8</div>
 </div>
 
 <script>
@@ -274,6 +283,20 @@ fetch('https://deja-lu.goatcounter.com/counter/TOTAL.json')
     if(b && d && d.count){ b.textContent = '👥 ' + d.count; b.style.display = 'block'; }
   })
   .catch(function(){});
+</script>
+
+<script>
+(function(){
+  var b1=document.getElementById('tabBtn1'), b2=document.getElementById('tabBtn2');
+  var t1=document.getElementById('tab-chunks'), t2=document.getElementById('tab-finals');
+  function show(n){
+    t1.hidden = n!==1; t2.hidden = n!==2;
+    b1.classList.toggle('on', n===1); b2.classList.toggle('on', n===2);
+    window.scrollTo({top:0});
+  }
+  b1.addEventListener('click', function(){ show(1); });
+  b2.addEventListener('click', function(){ show(2); });
+})();
 </script>
 </body>
 </html>
