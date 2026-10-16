@@ -39,7 +39,7 @@ eau, ou, on처럼 글자 여러 개가 소리 하나로 붙는 덩어리를 하�
 ## 기술
 
 - 단일 index.html + manifest.webmanifest + sw.js + icons
-- 음성: 프랑스어 MP3 사전 생성 후 base64 내장 (총 195개)
+- 음성: 프랑스어 MP3 사전 생성 후 base64 내장 (총 195개, 전부 같은 목소리로 통일 — 로컬 Piper 프랑스어 음성)
 
 ---
 
