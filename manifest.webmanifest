@@ -1,0 +1,30 @@
+{
+ "background_color": "#FBFAF7",
+ "description": "글자 이름이 아니라 소리 덩어리(eau, ou, on, in...)로 프랑스어를 읽는 입문 페이지. 덩어리마다 단어 예시와 내장 프랑스어 음성.",
+ "display": "standalone",
+ "icons": [
+  {
+   "sizes": "192x192",
+   "src": "icons/icon-192.png",
+   "type": "image/png"
+  },
+  {
+   "sizes": "512x512",
+   "src": "icons/icon-512.png",
+   "type": "image/png"
+  },
+  {
+   "purpose": "maskable",
+   "sizes": "512x512",
+   "src": "icons/maskable-512.png",
+   "type": "image/png"
+  }
+ ],
+ "lang": "ko",
+ "name": "Déjà Lu — 프랑스어 소리 덩어리",
+ "orientation": "portrait",
+ "scope": "./",
+ "short_name": "Déjà Lu",
+ "start_url": "./",
+ "theme_color": "#E63229"
+}
