@@ -71,7 +71,6 @@
 
   <div class="toolbar">
     <button id="toggleBtn" class="ghost">연습 모드: 빨간 표시 끄기</button>
-    <button id="allBtn">문장 전체 듣기</button>
   </div>
   <p id="playStatus" style="font-size:13px;color:var(--sub);margin:8px 0 0">소리: 단어를 누르면 내장 음성으로 바로 재생돼</p>
 
@@ -115,7 +114,7 @@
   <div id="texts"></div>
   </div>
   <footer>단어를 누르면 미리 만들어 둔 프랑스어 음성(MP3)으로 읽어줘. 기기 음성에 기대지 않는 방식이야. 연습 모드에서는 빨간 표시가 사라지고, 단어를 누르면 그 단어만 표시가 돌아와.<br><br></footer>
-  <div style="text-align:center;color:var(--sub);font-size:13px;margin-top:18px">© 2026 sidebatch. All rights reserved. · v13</div>
+  <div style="text-align:center;color:var(--sub);font-size:13px;margin-top:18px">© 2026 sidebatch. All rights reserved. · v14</div>
 </div>
 
 <script>
@@ -419,7 +418,6 @@ toggleBtn.onclick = ()=>{
   toggleBtn.textContent = hide ? "연습 모드 끄기: 표시 다시 켜기" : "연습 모드: 빨간 표시 끄기";
   if(!hide) document.querySelectorAll(".word.revealed").forEach(e=>e.classList.remove("revealed"));
 };
-document.getElementById("allBtn").onclick = ()=> speak(SENTS.map(s=>s.plain).join(" "));
 </script>
 
 <script>
