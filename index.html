@@ -53,8 +53,9 @@
   .spk{font-size:13px;color:var(--sub);font-weight:400}
   .mute{color:#b9b9be;text-decoration:line-through;text-decoration-thickness:2px;font-weight:800}
   #gcBadge{position:fixed;top:10px;right:12px;z-index:50;background:#fff;color:#1c1c1e;border:1.5px solid #e8e2d8;box-shadow:0 2px 8px rgba(0,0,0,.14);font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px;display:none}
-  .tabs{display:flex;gap:8px;margin:16px 0 2px}
-  .tabbtn{flex:1;background:#fff;color:var(--ink);border:1.5px solid var(--line);border-radius:999px;padding:10px 8px;font-size:15px;font-weight:800;cursor:pointer}
+  .tabs{display:flex;gap:8px;margin:16px 0 2px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tabbtn{flex:0 0 auto;white-space:nowrap;background:#fff;color:var(--ink);border:1.5px solid var(--line);border-radius:999px;padding:9px 14px;font-size:14px;font-weight:800;cursor:pointer}
   .tabbtn.on{background:var(--ink);color:#fff;border-color:var(--ink)}
   .link{color:var(--red);font-weight:900}
 </style>
@@ -114,7 +115,7 @@
   <div id="texts"></div>
   </div>
   <footer>단어를 누르면 미리 만들어 둔 프랑스어 음성(MP3)으로 읽어줘. 기기 음성에 기대지 않는 방식이야. 연습 모드에서는 빨간 표시가 사라지고, 단어를 누르면 그 단어만 표시가 돌아와.<br><br></footer>
-  <div style="text-align:center;color:var(--sub);font-size:13px;margin-top:18px">© 2026 sidebatch. All rights reserved. · v12</div>
+  <div style="text-align:center;color:var(--sub);font-size:13px;margin-top:18px">© 2026 sidebatch. All rights reserved. · v13</div>
 </div>
 
 <script>
@@ -395,11 +396,14 @@ TEXTS.forEach(t=>{
   h3.style.cssText = "margin:22px 2px 10px;font-size:18px";
   h3.textContent = t.title;
   textsEl.appendChild(h3);
+  const box = document.createElement("div"); box.className="sent";
   t.lines.forEach(l=>{
-    const d = document.createElement("button"); d.className="sent"; d.dataset.say=l.say;
-    d.innerHTML = '<span class="text">'+l.html+'</span><span class="kr">'+l.kr+' · 눌러서 듣기</span>';
-    textsEl.appendChild(d);
+    const p1=document.createElement("p"); p1.className="fr"; p1.innerHTML=l.html;
+    const p2=document.createElement("p"); p2.className="kr"; p2.textContent=l.kr;
+    p1.style.cursor="pointer"; p1.title="눌러서 듣기"; p1.onclick=()=>speak(l.say);
+    box.appendChild(p1); box.appendChild(p2);
   });
+  textsEl.appendChild(box);
 });
 
 document.querySelectorAll(".word").forEach(el=>{
