@@ -132,7 +132,7 @@
   <button class="nextbtn" data-go="1">끝까지 왔어 · 1번부터 다시 보기</button>
   </div>
   <footer>단어를 누르면 미리 만들어 둔 프랑스어 음성(MP3)으로 읽어줘. 기기 음성에 기대지 않는 방식이야. 연습 모드에서는 표시가 전부 사라지고, 단어를 누르면 그 단어만 표시가 돌아와.<br><br></footer>
-  <div style="text-align:center;color:var(--sub);font-size:13px;margin-top:18px">© 2026 sidebatch. All rights reserved. · v21</div>
+  <div style="text-align:center;color:var(--sub);font-size:13px;margin-top:18px">© 2026 sidebatch. All rights reserved. · v22</div>
 </div>
 
 <script>
@@ -155,8 +155,12 @@ const GROUPS = [
    ["un","un","하나, 한"],["lundi","un","월요일"],["brun","un","갈색의"],["parfum","um","향수"],["humble","um","겸손한"]]},
  {id:"oi", big:"OI", sound:"대략 와", pattern:"o+i로 쪼개면 못 읽어. 와, 하나로 봐.", words:[
    ["trois","oi","셋, 3"],["moi","oi","나"],["voir","oi","보다"],["noir","oi","검은"],["toi","oi","너"],["froid","oi","추운"]]},
+ {id:"ui", big:"UI", sound:"대략 위+이 (한 번에 붙여)", pattern:"u의 위 소리에 이가 빠르게 붙어. 위, 이로 쪼개서 두 박자로 읽지 않기. 문단에서 본 nuit, puis의 그 소리야.", words:[
+   ["nuit","ui","밤"],["puis","ui","그런 다음"],["huit","ui","여덟, 8"],["lui","ui","그에게"],["fruit","ui","과일"],["aujourd'hui","ui","오늘"]]},
  {id:"oin", big:"OIN", sound:"대략 앵~앙 사이 (코소리)", pattern:"왱이라고 한 음절로 세게 읽으면 이상해. 실제 단어에서는 와 부분이 앞 자음에 붙어서 loin은 루앵, moins는 므왱, point는 푸앵처럼 들려. 남은 코소리 모음은 앵과 앙 사이 소리 [wɛ̃]라서, 앙으로 들려도 이상한 게 아니야.", words:[
    ["loin","oin","멀리"],["moins","oin","덜, ~보다 적게"],["point","oin","점, 지점"],["besoin","oin","필요"]]},
+ {id:"ien", big:"IEN", sound:"대략 이앵~이앙 사이 (코소리)", pattern:"IN 가족의 사촌이야. 앞에 이가 붙고, 뒤는 같은 코소리 [ɛ̃]로 뭉개져.", words:[
+   ["chien","ien","개"],["bien","ien","잘, 좋은"],["rien","ien","아무것도 (아닌)"],["combien","ien","얼마나, 몇"]]},
  {id:"ai", big:"AI / EI", sound:"대략 에~애 사이", pattern:"ai와 ei는 같은 소리 [ɛ]. é보다 입을 더 벌려. 한국어 에와 애가 요즘 거의 합쳐져 있어서, 둘 사이로 들리면 맞아. 이름 A, I랑은 관계없어.", words:[
    ["mais","ai","하지만"],["vrai","ai","진짜의"],["lait","ai","우유"],["maison","ai","집"],["neige","ei","눈 (날씨)"],["treize","ei","열셋, 13"]]},
  {id:"eu", big:"EU", sound:"대략 으~외 사이", pattern:"한국어에 없는 소리. 같은 eu라도 단어마다 으에 가까운 소리와 외에 가까운 소리로 갈려서 하나로 단정하면 틀려. 단어 음성을 듣고 그 단어째로 잡아.", words:[
@@ -167,23 +171,18 @@ const GROUPS = [
    ["chat","ch","고양이"],["chien","ch","개"],["chose","ch","것, 물건"],["chocolat","ch","초콜릿"],["chaud","ch","따뜻한, 더운"]]},
  {id:"gn", big:"GN", sound:"대략 냐·녜·뉴", pattern:"g+n으로 쪼개지 마. 뒤 모음에 따라 냐, 녜, 뇨처럼 들리는 소리 하나야.", words:[
    ["gagner","gn","이기다, 벌다"],["montagne","gn","산"],["ligne","gn","선, 줄"],["campagne","gn","시골"]]},
+ {id:"ph", big:"PH", sound:"대략 프 (f 소리)", pattern:"p와 h로 쪼개지 마. 그리스어에서 온 단어에서 f 소리를 쓰는 철자야.", words:[
+   ["photo","ph","사진"],["pharmacie","ph","약국"],["téléphone","ph","전화"],["éléphant","ph","코끼리"]]},
  {id:"ill", big:"ILL", sound:"이으, 유처럼 이어지는 소리", pattern:"l을 받침으로 읽지 않기. fille가 대표 단어야.", words:[
    ["fille","ill","딸, 소녀"],["famille","ill","가족"],["billet","ill","표, 티켓"],["travailler","ill","일하다"]]},
- {id:"tion", big:"TION", sound:"대략 시옹", pattern:"단어 끝에서 자주 나오는 덩어리. 보이면 통째로 읽어.", words:[
-   ["nation","tion","나라, 국민"],["attention","tion","주의, 조심"],["question","tion","질문"],["action","tion","행동"]]},
- {id:"e-fin", big:"É / ER / EZ", sound:"닫힌 에 (단어 끝)", pattern:"단어 끝 é, er, ez는 전부 같은 소리 [e]. ai의 에~애보다 입을 덜 벌린, 더 닫힌 에야. er의 r은 소리 나지 않아.", words:[
-   ["café","é","커피, 카페"],["marché","é","시장"],["manger","er","먹다"],["parler","er","말하다"],["nez","ez","코"],["allez","ez","가세요 (aller)"]]}
-,
- {id:"ui", big:"UI", sound:"대략 위+이 (한 번에 붙여)", pattern:"u의 위 소리에 이가 빠르게 붙어. 위, 이로 쪼개서 두 박자로 읽지 않기. 문단에서 본 nuit, puis의 그 소리야.", words:[
-   ["nuit","ui","밤"],["puis","ui","그런 다음"],["huit","ui","여덟, 8"],["lui","ui","그에게"],["fruit","ui","과일"],["aujourd'hui","ui","오늘"]]},
- {id:"e-grave", big:"È / Ê", sound:"대략 에~애 사이 (넓은 에)", pattern:"é(닫힌 에)보다 입을 더 벌린 에야. ai와 같은 소리 계열 [ɛ]. ê는 옛날에 s가 있던 자리에 남은 표시야 (fenêtre는 옛 철자로 fenestre).", words:[
-   ["mère","è","엄마"],["très","è","매우"],["frère","è","형, 남동생"],["tête","ê","머리"],["fenêtre","ê","창문"],["forêt","ê","숲"]]},
- {id:"ien", big:"IEN", sound:"대략 이앵~이앙 사이 (코소리)", pattern:"IN 가족의 사촌이야. 앞에 이가 붙고, 뒤는 같은 코소리 [ɛ̃]로 뭉개져.", words:[
-   ["chien","ien","개"],["bien","ien","잘, 좋은"],["rien","ien","아무것도 (아닌)"],["combien","ien","얼마나, 몇"]]},
  {id:"ail", big:"AIL / EIL", sound:"대략 아이 (l이 녹아 이어짐)", pattern:"l을 받침으로 딱 끊지 마. 아이 소리 뒤에 l이 살짝 녹아 이어지는 소리야. ill이랑 비슷한 자리.", words:[
    ["travail","ail","일, 작업"],["détail","ail","자세한 내용"],["soleil","eil","해, 태양"],["réveil","eil","알람, 깨어남"]]},
- {id:"ph", big:"PH", sound:"대략 프 (f 소리)", pattern:"p와 h로 쪼개지 마. 그리스어에서 온 단어에서 f 소리를 쓰는 철자야.", words:[
-   ["photo","ph","사진"],["pharmacie","ph","약국"],["téléphone","ph","전화"],["éléphant","ph","코끼리"]]}
+ {id:"tion", big:"TION", sound:"대략 시옹", pattern:"단어 끝에서 자주 나오는 덩어리. 보이면 통째로 읽어.", words:[
+   ["nation","tion","나라, 국민"],["attention","tion","주의, 조심"],["question","tion","질문"],["action","tion","행동"]]},
+ {id:"e-grave", big:"È / Ê", sound:"대략 에~애 사이 (넓은 에)", pattern:"é(닫힌 에)보다 입을 더 벌린 에야. ai와 같은 소리 계열 [ɛ]. ê는 옛날에 s가 있던 자리에 남은 표시야 (fenêtre는 옛 철자로 fenestre).", words:[
+   ["mère","è","엄마"],["très","è","매우"],["frère","è","형, 남동생"],["tête","ê","머리"],["fenêtre","ê","창문"],["forêt","ê","숲"]]},
+ {id:"e-fin", big:"É / ER / EZ", sound:"닫힌 에 (단어 끝)", pattern:"단어 끝 é, er, ez는 전부 같은 소리 [e]. ai의 에~애보다 입을 덜 벌린, 더 닫힌 에야. er의 r은 소리 나지 않아.", words:[
+   ["café","é","커피, 카페"],["marché","é","시장"],["manger","er","먹다"],["parler","er","말하다"],["nez","ez","코"],["allez","ez","가세요 (aller)"]]}
 ];
 
 const SENTS = [
