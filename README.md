@@ -13,8 +13,8 @@ eau, ou, on처럼 글자 여러 개가 소리 하나로 붙는 덩어리를 하�
 
 ## 콘텐츠 현황
 
-- 소리 덩어리 18종: OU · ON/OM · EAU · AU · AN/AM · EN/EM · AIN/EIN/AIM/IN/IM · UN/UM · OI · OIN · AI/EI · EU · U · CH · GN · ILL · TION · É/ER/EZ
-- 덩어리별 예시 단어 총 100개 (덩어리 부분만 빨간색 표시)
+- 소리 덩어리 23종: OU · ON/OM · EAU · AU · AN/AM · EN/EM · AIN/EIN/AIM/IN/IM · UN/UM · OI · OIN · AI/EI · EU · U · CH · GN · ILL · TION · É/ER/EZ · UI · È/Ê · IEN · AIL/EIL · PH
+- 덩어리별 예시 단어 총 124개 (덩어리 부분만 빨간색 표시)
 - 문장 예시 5개 (문장 안에서도 덩어리만 빨간색 표시)
 - 읽지 않는 끝글자 섹션: 끝 P/T/D · 끝 S/X (안 읽음, 회색 표시), 끝 C/R/F/L (읽음, 빨간색 표시), 끝 E (앞 자음을 살리는 쌍 비교) — 단어 29개
 - 리에종 섹션: 되살아나는 끝글자 표현 9개 + 줄여 쓰기 6개
@@ -39,7 +39,7 @@ eau, ou, on처럼 글자 여러 개가 소리 하나로 붙는 덩어리를 하�
 ## 기술
 
 - 단일 index.html + manifest.webmanifest + sw.js + icons
-- 음성: 프랑스어 MP3 사전 생성 후 base64 내장 (총 195개, 전부 같은 목소리로 통일 — 로컬 Piper 프랑스어 음성)
+- 음성: 프랑스어 MP3 사전 생성 후 base64 내장 (총 216개, 전부 같은 목소리로 통일 — 로컬 Piper 프랑스어 음성)
 
 ---
 
